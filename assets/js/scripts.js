@@ -8,6 +8,7 @@ var windEl = document.querySelector('#wind');
 var humidityEl = document.querySelector('#humidity');
 var uvEl = document.querySelector('#uv');
 
+
 var date1El = document.querySelector('#date1');
 var date2El = document.querySelector('#date2');
 var date3El = document.querySelector('#date3');
@@ -26,10 +27,13 @@ var getForecastData = function (daysAhead, data) {
     const temp = document.querySelector('#temp' + daysAhead);
     const wind = document.querySelector('#wind' + daysAhead);
     const hum = document.querySelector('#hum' + daysAhead);
+    const icon = document.querySelector('#icon' + daysAhead);
 
     temp.innerHTML = 'Temp: ' + data.daily[daysAhead-1].temp.day;
     wind.innerHTML = 'Wind: ' + data.daily[daysAhead-1].wind_speed + ' MPH';
     hum.innerHTML = 'Humidity: ' + data.daily[daysAhead-1].humidity + '%';
+    icon.setAttribute('src', 'http://openweathermap.org/img/w/' + data.daily[daysAhead-1].weather[0].icon + '.png');
+    console.log(data);
 };
 
 
@@ -110,14 +114,19 @@ var loadHistory = function() {
     }
 
     for (var i = 0; i < savedSearches.length; i++) {
-        console.log(savedSearches[i].cityName)
+        generateHistory(savedSearches[i].cityName)
     }
     
 };
 
-var generateHistory = function() {
+var generateHistory = function(city) {
+    var historyContainerEl = document.querySelector('#history-container');
+    var historyEl = document.createElement('div');
+    historyEl.className = 'searched-city';
+    historyEl.innerHTML = city;
+    historyContainerEl.appendChild(historyEl);
+};
 
-}
 
 
 var formSubmitHandler = function(event) {
@@ -155,5 +164,6 @@ var formSubmitHandler = function(event) {
 };
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
+
 
 loadHistory();
