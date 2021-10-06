@@ -11,7 +11,7 @@
     <header>Weather Dashboard</header>
     <div class="row">
         <div class="col-3">
-            <form>
+            <form id="city-form">
                 <label for="city-search"></label>
                 <input type="text" name="city-search" id="city-search" placeholder="Enter a city name here">
                 <button type="submit">Search</button>
@@ -22,24 +22,53 @@
         </div>
         <div class="col-9">
             <div class="row">
-                <h1>Atlanta (3/30/2021)</h1>
-                <p>Temp: 74F</p>
-                <p>Wind: 6mph</p>
-                <p>Humidity:</p>
-                <p>UV Index:</p>
+                <h1 id="city"></h1>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+                <p id="uv"></p>
             </div>
             <h2 class="row">5-Day Forecast:</h2>
-            <div class="row">
-                <div class="col-2">
-                    <h3>3/31/2021</h3>
-                    <img src="" alt="">
-                    <p>Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
+            <div class="row" id="5-day-container">
+                <div id="day1" class="col-2">
+                    <h3 id="date1"></h3>
+                    <img id="icon1" src="" alt="">
+                    <p id="temp1"></p>
+                    <p id="wind1"></p>
+                    <p id="hum1"></p>
+                </div>
+                <div id="day2" class="col-2">
+                    <h3 id="date2"></h3>
+                    <img id="icon2" src="" alt="">
+                    <p id="temp2"></p>
+                    <p id="wind2"></p>
+                    <p id="hum2"></p>
+                </div>
+                <div id="day3" class="col-2">
+                    <h3 id="date3"></h3>
+                    <img id="icon3" src="" alt="">
+                    <p id="temp3"></p>
+                    <p id="wind3"></p>
+                    <p id="hum3"></p>
+                </div>
+                <div id="day4" class="col-2">
+                    <h3 id="date4"></h3>
+                    <img id="icon4" src="" alt="">
+                    <p id="temp4"></p>
+                    <p id="wind4"></p>
+                    <p id="hum4"></p>
+                </div>
+                <div id="day5" class="col-2">
+                    <h3 id="date5"></h3>
+                    <img id="icon5" src="" alt="">
+                    <p id="temp5"></p>
+                    <p id="wind5"></p>
+                    <p id="hum5"></p>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
