@@ -7,6 +7,7 @@ var tempEl = document.querySelector('#temp');
 var windEl = document.querySelector('#wind');
 var humidityEl = document.querySelector('#humidity');
 var uvEl = document.querySelector('#uv');
+var iconEl = document.querySelector('#icon');
 
 
 var date1El = document.querySelector('#date1');
@@ -43,6 +44,7 @@ var displayWeather = function(currentObj) {
     windEl.innerHTML = "Wind: " + currentObj.current.wind_speed + " MPH"
     humidityEl.innerHTML = "Humidity: " + currentObj.current.humidity + " %"
     uvEl.innerHTML = "UV Index: " + currentObj.current.uvi
+    iconEl.setAttribute('src', 'http://openweathermap.org/img/w/' + currentObj.current.weather[0].icon + '.png');
 
     if (currentObj.current.uvi <= 2) {
         uvEl.classList.add('low');

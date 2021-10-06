@@ -1,3 +1,17 @@
+
+:root {
+    --primary: #b3e5fc;
+    --primary-dark: #82b3c9;
+    --primary-light: #e6ffff;
+    --secondary: #a5d6a7;
+    --secondary-light: #d7ffd9;
+    --secondary-dark: #75a478;
+}
+
+body {
+    background-color: var(--primary-light);
+}
+
 .low {
     background-color: green;
     width: auto;
@@ -11,4 +25,50 @@
 .severe {
     background-color: red;
     width: auto;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color: var(--primary);
+    height: 100px;
+    line-height: 100px;
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+button {
+    border: unset;
+    background-color: var(--secondary);
+}
+
+.city-form {
+    display: block;
+    margin: 0 auto;
+    background-color: gainsboro;
+}
+
+.searched-city {
+    background-color: var(--secondary);
+    width: 70%;
+    margin: 5px auto;
+}
+
+.current-icon {
+    height: 42px;
+    width: auto;
+}
+
+.five-day-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.main {
+    padding: 40px;
+}
+
+.date {
+    font-size: 22px;
 }
