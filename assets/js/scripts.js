@@ -1,3 +1,4 @@
+savedSearches = [];
 
 var cityFormEl = document.querySelector('#city-form');
 var cityInputEl = document.querySelector('#city-search');
@@ -39,6 +40,21 @@ var displayWeather = function(currentObj) {
     humidityEl.innerHTML = "Humidity: " + currentObj.current.humidity + " %"
     uvEl.innerHTML = "UV Index: " + currentObj.current.uvi
 
+    if (currentObj.current.uvi <= 2) {
+        uvEl.classList.add('low');
+        uvEl.classList.remove('moderate');
+        uvEl.classList.remove('severe');
+
+    } else if (currentObj.current.uvi > 2 && currentObj.current.uvi <= 5) {
+        uvEl.classList.remove('low');
+        uvEl.classList.add('moderate');
+        uvEl.classList.remove('severe');
+    } else {
+        uvEl.classList.remove('low');
+        uvEl.classList.remove('moderate');
+        uvEl.classList.add('severe');
+    }
+
     getForecastData(1, currentObj);
     getForecastData(2, currentObj);
     getForecastData(3, currentObj);
@@ -76,12 +92,50 @@ var apiCurrentUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city +
 
 };
 
+var saveSearch = function() {
+    localStorage.setItem('history', JSON.stringify(savedSearches))
+};
+
+var loadHistory = function() {
+    var localSearches = localStorage.getItem('history');
+    if (!localSearches) {
+        return false;
+    }
+
+    localSearches = JSON.parse(localSearches);
+
+    for (var i = 0; i < localSearches.length; i++) {
+        savedSearches.push(localSearches[i]);
+        console.log(savedSearches);
+    }
+
+    for (var i = 0; i < savedSearches.length; i++) {
+        console.log(savedSearches[i].cityName)
+    }
+    
+};
+
+var generateHistory = function() {
+
+}
 
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
     var city = cityInputEl.value;
     const words = city.split(" ")
+    var cityName = words.join(" ");
+    console.log(cityName);
+    
+    savedSearches.push({cityName});
+    saveSearch();
+
+    if(savedSearches) {
+        for (i = 0, i < savedSearches.length; i++;) {
+        console.log(savedSearches[i]);
+        }
+    } 
+
 
     if (city) {
         getCurrentWeatherData(city);
@@ -89,13 +143,17 @@ var formSubmitHandler = function(event) {
 
         for (let i = 0; i < words.length; i++) {
             words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-        }
-
+        };
 
         cityEl.innerHTML = words.join(" ") + " " + "(" + moment().format("L") + ")";
+        console.log(cityName);
+
+
     } else {
         alert("Please enter a city name")
     }
 };
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
+
+loadHistory();

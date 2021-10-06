@@ -1,0 +1,14 @@
+.low {
+    background-color: green;
+    width: auto;
+}
+
+.moderate {
+    background-color: yellow;
+    width: auto;
+}
+
+.severe {
+    background-color: red;
+    width: auto;
+}
