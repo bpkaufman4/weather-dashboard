@@ -1,4 +1,6 @@
-
+#city {
+    text-align: center;
+}
 :root {
     --primary: #b3e5fc;
     --primary-dark: #82b3c9;
@@ -9,49 +11,100 @@
 }
 
 body {
-    background-color: var(--primary-light);
+    background-color: var(--primary);
+}
+
+.city {
+    background-color: var(--secondary-dark);
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
 }
 
 .low {
-    background-color: green;
+    background-color: var(--secondary-dark);
     width: auto;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .moderate {
-    background-color: yellow;
+    background-color: #fff59d;
     width: auto;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .severe {
-    background-color: red;
+    background-color: #ef9a9a;
     width: auto;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 header {
     width: 100%;
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     height: 100px;
     line-height: 100px;
     font-size: 45px;
     margin-bottom: 30px;
 }
 
+
+
+.day-card {
+    background-color: var(--secondary-light);
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.name-area {
+    margin-bottom: 5px;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    border: unset;
+}
+
 button {
     border: unset;
-    background-color: var(--secondary);
+    background-color: var(--secondary) !important;
+    text-align: center !important;
+    width: 200px !important;
+    height: 40px;
+    border-radius: 20px;
 }
 
 .city-form {
     display: block;
     margin: 0 auto;
     background-color: gainsboro;
+    border-radius: 15px 15px 0 0;
 }
 
 .searched-city {
-    background-color: var(--secondary);
+    background-color: var(--secondary-light);
     width: 70%;
-    margin: 5px auto;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    
+}
+
+.history-container {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .current-icon {
@@ -61,8 +114,23 @@ button {
 
 .five-day-container {
     background-color: white;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 15px;
+    padding: unset;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card-container {
+    margin: unset;
+}
+
+.five-day-hd {
+    background-color: var(--secondary-dark);
+    margin: unset;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 .main {
@@ -72,3 +140,15 @@ button {
 .date {
     font-size: 22px;
 }
+
+.current {
+    background-color: whitesmoke;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.current p {
+    font-size: 24px;
+}
+

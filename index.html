@@ -11,19 +11,18 @@
 <body>
     <header>Weather Dashboard</header>
     <div class="main row">
-        <div class="col-3 form-container">
-            <form id="city-form" class="city-form">
-                <label for="city-search"></label>
-                <input type="text" name="city-search" id="city-search" placeholder="Enter a city name here">
-                <button class="btn" type="submit">Search</button>
+        <div class="col-3 container form-container">
+            <form id="city-form" class="d-flex row p-3 container justify-content-center city-form">
+                <input class="col-8 name-area" type="text" name="city-search" id="city-search" placeholder="Enter a city name here">
+                <button class="col-3 search-button" type="submit">Search</button>
             </form> 
             <div id="history-container" class="col-12 history-container">
                 <!-- Dynamically create search history here -->
             </div>
         </div>
         <div class="col-9 forecasts">
-            <div class="row">
-                <h1 id="city"></h1>
+            <div class="row current">
+                <h1 class="city" id="city"></h1>
                 <img id="icon" class="current-icon" src="" alt="">
                 <p id="temp"></p>
                 <p id="wind"></p>
@@ -31,37 +30,37 @@
                 <p id="uv"></p>
             </div>
             <div class="container five-day-container">
-                <h2>5-Day Forecast:</h2>
-                <div class="row d-flex justify-content-between container" id="5-day-container">
-                    <div id="day1" class="col-lg-2 col-md-6">
+                <h2 class="five-day-hd">5-Day Forecast:</h2>
+                <div class="row d-flex justify-content-between container card-container" id="5-day-container">
+                    <div id="day1" class="day-card col-lg-2 col-md-6">
                         <h3 id="date1" class="date"></h3>
                         <img id="icon1" src="" alt="">
                         <p id="temp1"></p>
                         <p id="wind1"></p>
                         <p id="hum1"></p>
                     </div>
-                    <div id="day2" class="col-lg-2 col-md-6">
+                    <div id="day2" class="day-card col-lg-2 col-md-6">
                         <h3 id="date2" class="date"></h3>
                         <img id="icon2" src="" alt="">
                         <p id="temp2"></p>
                         <p id="wind2"></p>
                         <p id="hum2"></p>
                     </div>
-                    <div id="day3" class="col-lg-2 col-md-6">
+                    <div id="day3" class="day-card col-lg-2 col-md-6">
                         <h3 id="date3" class="date"></h3>
                         <img id="icon3" src="" alt="">
                         <p id="temp3"></p>
                         <p id="wind3"></p>
                         <p id="hum3"></p>
                     </div>
-                    <div id="day4" class="col-lg-2 col-md-6">
+                    <div id="day4" class="day-card col-lg-2 col-md-6">
                         <h3 id="date4" class="date"></h3>
                         <img id="icon4" src="" alt="">
                         <p id="temp4"></p>
                         <p id="wind4"></p>
                         <p id="hum4"></p>
                     </div>
-                    <div id="day5" class="col-lg-2 col-md-6">
+                    <div id="day5" class="day-card col-lg-2 col-md-6">
                         <h3 id="date5" class="date"></h3>
                         <img id="icon5" src="" alt="">
                         <p id="temp5"></p>
