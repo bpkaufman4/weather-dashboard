@@ -33,7 +33,7 @@ var getForecastData = function (daysAhead, data) {
     temp.innerHTML = 'Temp: ' + data.daily[daysAhead-1].temp.day;
     wind.innerHTML = 'Wind: ' + data.daily[daysAhead-1].wind_speed + ' MPH';
     hum.innerHTML = 'Humidity: ' + data.daily[daysAhead-1].humidity + '%';
-    icon.setAttribute('src', 'http://openweathermap.org/img/w/' + data.daily[daysAhead-1].weather[0].icon + '.png');
+    icon.setAttribute('src', 'https://openweathermap.org/img/w/' + data.daily[daysAhead-1].weather[0].icon + '.png');
     console.log(data);
 };
 
@@ -44,7 +44,7 @@ var displayWeather = function(currentObj) {
     windEl.innerHTML = "Wind: " + currentObj.current.wind_speed + " MPH"
     humidityEl.innerHTML = "Humidity: " + currentObj.current.humidity + " %"
     uvEl.innerHTML = "UV Index: " + currentObj.current.uvi
-    iconEl.setAttribute('src', 'http://openweathermap.org/img/w/' + currentObj.current.weather[0].icon + '.png');
+    iconEl.setAttribute('src', 'https://openweathermap.org/img/w/' + currentObj.current.weather[0].icon + '.png');
 
     if (currentObj.current.uvi <= 2) {
         uvEl.classList.add('low');
@@ -86,7 +86,7 @@ var getCurrentWeatherData = function(city) {
     // format the api url from openWeather
     stateName = city.trim().split(" ").join("+");
 
-var apiCurrentUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31";
+var apiCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31";
     
     fetch(apiCurrentUrl)
     .then(function(response) {
