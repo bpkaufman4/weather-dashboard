@@ -72,7 +72,7 @@ var displayWeather = function(currentObj) {
 var getCityCoordinates = function(city) {
     console.log(city.coord.lat, city.coord.lon);
     var apiCityCoordinates = "https://api.openweathermap.org/data/2.5/onecall?lat=" + city.coord.lat + "&lon=" + city.coord.lon + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31"
-
+    console.log(apiCityCoordinates)
     fetch(apiCityCoordinates)
     .then(function(response) {
         response.json()
