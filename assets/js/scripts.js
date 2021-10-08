@@ -17,12 +17,12 @@ var date4El = document.querySelector('#date4');
 var date5El = document.querySelector('#date5');
 
 
-date1El.innerHTML = moment().add(1, 'days').format("L")
-date2El.innerHTML = moment().add(2, 'days').format("L")
-date3El.innerHTML = moment().add(3, 'days').format("L")
-date4El.innerHTML = moment().add(4, 'days').format("L")
-date5El.innerHTML = moment().add(5, 'days').format("L")
-cityEl.innerHTML = "(" + moment().format("L") + ")";
+date1El.innerHTML = moment().add(1, 'days').format("dddd L")
+date2El.innerHTML = moment().add(2, 'days').format("dddd L")
+date3El.innerHTML = moment().add(3, 'days').format("dddd L")
+date4El.innerHTML = moment().add(4, 'days').format("dddd L")
+date5El.innerHTML = moment().add(5, 'days').format("dddd L")
+cityEl.innerHTML = "(" + moment().format("dddd L") + ")";
 
 var getForecastData = function (daysAhead, data) {
     const temp = document.querySelector('#temp' + daysAhead);
