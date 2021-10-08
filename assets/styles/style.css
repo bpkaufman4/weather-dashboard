@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 #city {
     text-align: center;
 }
@@ -42,13 +47,16 @@ body {
 }
 
 header {
-    width: 100%;
+    width: 105%;
     text-align: center;
     background-color: var(--primary-dark);
     height: 100px;
     line-height: 100px;
     font-size: 45px;
+    margin: 0;
+    padding: 0;
     margin-bottom: 30px;
+
 }
 
 
@@ -152,3 +160,31 @@ button {
     font-size: 24px;
 }
 
+@media only screen and (max-width: 425px) {
+    header {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 2px rgba(0,0,0,0.24);
+        position: fixed;
+        font-size: 40px;
+    }
+
+    .history-container {
+        display: none;
+    }
+
+    .city-form {
+        background-color: var(--primary);
+        margin-top: 100px;
+    }
+
+    .main {
+        padding-top: 0;
+    }
+
+    .name-area {
+        width: 100%;
+    }
+
+    button {
+        width: 100% !important;
+    }
+}

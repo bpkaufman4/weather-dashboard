@@ -11,16 +11,16 @@
 <body>
     <header>Weather Dashboard</header>
     <div class="main row">
-        <div class="col-3 container form-container">
+        <div class="col-md-5 col-lg-3 col-sm-12 container form-container">
             <form id="city-form" class="d-flex row p-3 container justify-content-center city-form">
-                <input class="col-8 name-area" type="text" name="city-search" id="city-search" placeholder="Enter a city name here">
-                <button class="col-3 search-button" type="submit">Search</button>
+                <input class="col-md-8 col-sm-12 name-area" type="text" name="city-search" id="city-search" placeholder="Enter a city name here">
+                <button class="col-md-3 col-sm-12 search-button" type="submit">Search</button>
             </form> 
             <div id="history-container" class="col-12 history-container">
                 <!-- Dynamically create search history here -->
             </div>
         </div>
-        <div class="col-9 forecasts">
+        <div class="col-lg-9 col-md-7 col-sm-12 forecasts">
             <div class="row current">
                 <h1 class="city" id="city"></h1>
                 <img id="icon" class="current-icon" src="" alt="">
