@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .hidden {
@@ -11,20 +12,21 @@
     text-align: center;
 }
 :root {
-    --primary: #b3e5fc;
-    --primary-dark: #82b3c9;
-    --primary-light: #e6ffff;
-    --secondary: #a5d6a7;
-    --secondary-light: #d7ffd9;
-    --secondary-dark: #75a478;
+    --primary: #4fc3f7;
+    --primary-dark: #0093c4;
+    --primary-light: #8bf6ff;
+    --secondary: #ff6277;
+    --secondary-light: #ff95a6;
+    --secondary-dark: #c72b4c;
 }
 
 body {
-    background-color: var(--primary);
+    background-color: #aaa;
 }
 
 .city {
-    background-color: var(--secondary-light);
+    background-color: var(--primary-dark);
+    color: white;
     padding: 20px;
     border-radius: 15px 15px 0 0;
 }
@@ -60,6 +62,7 @@ header {
     margin: 0;
     padding: 0;
     margin-bottom: 30px;
+    color: white;
 }
 
 
@@ -118,12 +121,14 @@ button {
 }
 
 .five-day-hd {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     margin: unset;
     border-radius: 15px 15px 0 0;
     text-align: center;
     padding: 15px;
     margin-bottom: 10px;
+    color: #fff;
+    font-weight: 300;
 }
 
 .main {
@@ -157,7 +162,7 @@ button {
     }
 
     .city-form {
-        background-color: var(--primary);
+        background-color: #aaa;
         margin-top: 100px;
     }
 
