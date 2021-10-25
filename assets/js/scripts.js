@@ -16,6 +16,20 @@ var date3El = document.querySelector('#date3');
 var date4El = document.querySelector('#date4');
 var date5El = document.querySelector('#date5');
 
+document.querySelector('#time1').innerHTML = moment().add(1, 'hours').format("h a");
+document.querySelector('#time2').innerHTML = moment().add(2, 'hours').format("h a");
+document.querySelector('#time3').innerHTML = moment().add(3, 'hours').format("h a");
+document.querySelector('#time4').innerHTML = moment().add(4, 'hours').format("h a");
+document.querySelector('#time5').innerHTML = moment().add(5, 'hours').format("h a");
+document.querySelector('#time6').innerHTML = moment().add(6, 'hours').format("h a");
+document.querySelector('#time7').innerHTML = moment().add(7, 'hours').format("h a");
+document.querySelector('#time8').innerHTML = moment().add(8, 'hours').format("h a");
+document.querySelector('#time9').innerHTML = moment().add(9, 'hours').format("h a");
+document.querySelector('#time10').innerHTML = moment().add(10, 'hours').format("h a");
+document.querySelector('#time11').innerHTML = moment().add(11, 'hours').format("h a");
+document.querySelector('#time12').innerHTML = moment().add(12, 'hours').format("h a");
+
+
 
 date1El.innerHTML = moment().add(1, 'days').format("dddd L")
 date2El.innerHTML = moment().add(2, 'days').format("dddd L")
@@ -37,8 +51,21 @@ var getForecastData = function (daysAhead, data) {
     console.log(data);
 };
 
+var getHourlyData = function (hoursAhead, data) {
+    const hourly = document.querySelector('#hr' + hoursAhead);
+    const temp = document.querySelector('#temp' + hoursAhead + 'Hr');
+    const precip = document.querySelector('#precip' + hoursAhead + 'Hr');
+
+    hourly.classList.remove('hidden');
+    hourly.classList.add('day-card');
+
+    temp.innerHTML = data.hourly[hoursAhead-1].temp + '°F';
+    precip.innerHTML = 'Precip. ' + data.hourly[hoursAhead-1].pop * 100 + '%';
+    console.log(data);
+};
 
 var displayWeather = function(currentObj) {
+    console.log('this is working')
     console.log(currentObj);
     tempEl.innerHTML = "Temp: " + currentObj.current.temp + "°F";
     windEl.innerHTML = "Wind: " + currentObj.current.wind_speed + " MPH"
@@ -60,12 +87,14 @@ var displayWeather = function(currentObj) {
         uvEl.classList.remove('moderate');
         uvEl.classList.add('severe');
     }
+    for (i = 0; i < 5; i++) {
+        getForecastData(i + 1, currentObj);
+    }
 
-    getForecastData(1, currentObj);
-    getForecastData(2, currentObj);
-    getForecastData(3, currentObj);
-    getForecastData(4, currentObj);
-    getForecastData(5, currentObj);
+    for (i = 0; i < 12; i++) {
+        getHourlyData(i + 1, currentObj);
+    }
+   
 };
 
 
@@ -102,32 +131,6 @@ var saveSearch = function() {
     localStorage.setItem('history', JSON.stringify(savedSearches))
 };
 
-var loadHistory = function() {
-    var localSearches = localStorage.getItem('history');
-    if (!localSearches) {
-        return false;
-    }
-
-    localSearches = JSON.parse(localSearches);
-
-    for (var i = 0; i < localSearches.length; i++) {
-        savedSearches.push(localSearches[i]);
-        console.log(savedSearches);
-    }
-
-    for (var i = 0; i < savedSearches.length; i++) {
-        generateHistory(savedSearches[i].cityName)
-    }
-    
-};
-
-var generateHistory = function(city) {
-    var historyContainerEl = document.querySelector('#history-container');
-    var historyEl = document.createElement('div');
-    historyEl.className = 'searched-city';
-    historyEl.innerHTML = city;
-    historyContainerEl.appendChild(historyEl);
-};
 
 
 
@@ -167,5 +170,3 @@ var formSubmitHandler = function(event) {
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
-
-loadHistory();

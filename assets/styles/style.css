@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 #city {
     text-align: center;
 }
