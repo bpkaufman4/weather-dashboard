@@ -97,6 +97,26 @@ var displayWeather = function(currentObj) {
    
 };
 
+var getLocation = function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getLocalWeather);
+    } else {
+        document.alert('Unable to get current location');
+    }
+}
+
+var getLocalWeather = function(position) {
+    var apiCityCoordinates = "https://api.openweathermap.org/data/2.5/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31"
+    console.log(apiCityCoordinates)
+    fetch(apiCityCoordinates)
+    .then(function(response) {
+        response.json()
+        .then(function(data) {
+            displayWeather(data);
+        })
+    })
+}
+
 
 var getCityCoordinates = function(city) {
     console.log(city.coord.lat, city.coord.lon);
@@ -170,3 +190,4 @@ var formSubmitHandler = function(event) {
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
+getLocation();
