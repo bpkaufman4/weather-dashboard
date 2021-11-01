@@ -23,6 +23,7 @@
 
 body {
     background-color: #aaa;
+    overflow-x: hidden;
 }
 
 .city {
