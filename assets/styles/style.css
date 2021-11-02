@@ -182,6 +182,10 @@ button {
     .name-area {
         width: 100%;
     }
+    
+    .toggle {
+        width: 75% !important;
+    }
 
     button {
         width: 100% !important;
