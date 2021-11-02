@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Zen Kaku Gothic New', sans-serif;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 .hidden {
@@ -23,7 +24,6 @@
 
 body {
     background-color: #aaa;
-    overflow-x: hidden;
 }
 
 .city {
@@ -110,6 +110,11 @@ button {
     width: auto;
 }
 
+.toggle {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
 .five-day-container {
     background-color: white;
     border-radius: 15px;
@@ -135,10 +140,12 @@ button {
 
 .main {
     padding: 40px;
+    overflow-x: hidden;
 }
 
 .date {
     font-size: 22px;
+    overflow-y: hidden;
 }
 
 .current {
@@ -169,7 +176,7 @@ button {
     }
 
     .main {
-        padding-top: 0;
+        padding: 0;
     }
 
     .name-area {

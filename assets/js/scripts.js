@@ -9,6 +9,8 @@ var humidityEl = document.querySelector('#humidity');
 var uvEl = document.querySelector('#uv');
 var iconEl = document.querySelector('#icon');
 
+var showBtnEl = document.querySelector('#show');
+var hideBtnEl = document.querySelector('#hide')
 
 var date1El = document.querySelector('#date1');
 var date2El = document.querySelector('#date2');
@@ -44,6 +46,8 @@ var getForecastData = function (daysAhead, data) {
     const hum = document.querySelector('#hum' + daysAhead);
     const icon = document.querySelector('#icon' + daysAhead);
 
+    showBtnEl.classList.remove('hidden');
+
     temp.innerHTML = 'Temp: ' + data.daily[daysAhead-1].temp.day;
     wind.innerHTML = 'Wind: ' + data.daily[daysAhead-1].wind_speed + ' MPH';
     hum.innerHTML = 'Humidity: ' + data.daily[daysAhead-1].humidity + '%';
@@ -56,8 +60,21 @@ var getHourlyData = function (hoursAhead, data) {
     const temp = document.querySelector('#temp' + hoursAhead + 'Hr');
     const precip = document.querySelector('#precip' + hoursAhead + 'Hr');
 
-    hourly.classList.remove('hidden');
-    hourly.classList.add('day-card');
+    var showHourly = function() {
+        hourly.classList.remove('hidden');
+        hourly.classList.add('day-card');
+        showBtnEl.classList.add('hidden');
+        hideBtnEl.classList.remove('hidden');
+    }
+
+    var hideHourly = function() {
+        hourly.classList.add('hidden');
+        showBtnEl.classList.remove('hidden');
+        hideBtnEl.classList.add('hidden');
+    }
+
+    showBtnEl.addEventListener("click", showHourly);
+    hideBtnEl.addEventListener("click", hideHourly);
 
     temp.innerHTML = data.hourly[hoursAhead-1].temp + '°F';
     precip.innerHTML = 'Precip. ' + data.hourly[hoursAhead-1].pop * 100 + '%';
