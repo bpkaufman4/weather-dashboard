@@ -10,7 +10,8 @@ var uvEl = document.querySelector('#uv');
 var iconEl = document.querySelector('#icon');
 
 var showBtnEl = document.querySelector('#show');
-var hideBtnEl = document.querySelector('#hide')
+var hideBtnEl = document.querySelector('#hide');
+var hourlyBoxEl = document.querySelector('#hourly-box');
 
 var date1El = document.querySelector('#date1');
 var date2El = document.querySelector('#date2');
@@ -65,12 +66,14 @@ var getHourlyData = function (hoursAhead, data) {
         hourly.classList.add('day-card');
         showBtnEl.classList.add('hidden');
         hideBtnEl.classList.remove('hidden');
+        hourlyBoxEl.classList.remove('hidden');
     }
 
     var hideHourly = function() {
         hourly.classList.add('hidden');
         showBtnEl.classList.remove('hidden');
         hideBtnEl.classList.add('hidden');
+        hourlyBoxEl.classList.add('hidden');
     }
 
     showBtnEl.addEventListener("click", showHourly);

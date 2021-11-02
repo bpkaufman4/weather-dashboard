@@ -182,12 +182,21 @@ button {
     .name-area {
         width: 100%;
     }
-    
+
     .toggle {
         width: 75% !important;
     }
 
     button {
         width: 100% !important;
+    }
+
+    .hourly-box {
+        padding: 25px;
+        height: 400px;
+        background: #cfcfcf;
+        width: 90%;
+        border-radius: 10px;
+        padding-top: 0;
     }
 }
