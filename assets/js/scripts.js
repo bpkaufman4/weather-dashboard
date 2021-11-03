@@ -64,6 +64,7 @@ var getHourlyData = function (hoursAhead, data) {
     var showHourly = function() {
         hourly.classList.remove('hidden');
         hourly.classList.add('day-card');
+        hourly.classList.add('hour-card');
         showBtnEl.classList.add('hidden');
         hideBtnEl.classList.remove('hidden');
         hourlyBoxEl.classList.remove('hidden');

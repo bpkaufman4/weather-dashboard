@@ -193,10 +193,15 @@ button {
 
     .hourly-box {
         padding: 25px;
-        height: 400px;
+        height: 115px;
         background: #cfcfcf;
-        width: 90%;
         border-radius: 10px;
         padding-top: 0;
+        overflow-x: scroll;
+    }
+    .hour-card {
+        width: 150px;
+        border-radius: unset;
+        border-right: 1px solid #ddd;
     }
 }
