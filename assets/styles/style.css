@@ -115,6 +115,10 @@ button {
     margin-bottom: 20px;
 }
 
+.hour {
+    font-size: 20px;
+}
+
 .five-day-container {
     background-color: white;
     border-radius: 15px;
@@ -184,24 +188,38 @@ button {
     }
 
     .toggle {
-        width: 75% !important;
+        margin-bottom: 0;
+    }
+
+    .toggle.hide {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
     }
 
     button {
         width: 100% !important;
+        font-size: 20px;
     }
 
     .hourly-box {
         padding: 25px;
-        height: 115px;
+        height: 195px;
         background: #cfcfcf;
         border-radius: 10px;
         padding-top: 0;
         overflow-x: scroll;
+        overflow-y: hidden;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
     }
     .hour-card {
         width: 150px;
         border-radius: unset;
-        border-right: 1px solid #ddd;
+        border-right: 1px solid #cfcfcf;
+        background-color: var(--primary-light);
+    }
+    .material-icons {
+        position: relative;
+        top: 5px;
     }
 }

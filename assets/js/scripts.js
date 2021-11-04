@@ -9,8 +9,7 @@ var humidityEl = document.querySelector('#humidity');
 var uvEl = document.querySelector('#uv');
 var iconEl = document.querySelector('#icon');
 
-var showBtnEl = document.querySelector('#show');
-var hideBtnEl = document.querySelector('#hide');
+var toggleBtnEl = document.querySelector('#toggle');
 var hourlyBoxEl = document.querySelector('#hourly-box');
 
 var date1El = document.querySelector('#date1');
@@ -47,7 +46,7 @@ var getForecastData = function (daysAhead, data) {
     const hum = document.querySelector('#hum' + daysAhead);
     const icon = document.querySelector('#icon' + daysAhead);
 
-    showBtnEl.classList.remove('hidden');
+    toggleBtnEl.classList.remove('hidden');
 
     temp.innerHTML = 'Temp: ' + data.daily[daysAhead-1].temp.day;
     wind.innerHTML = 'Wind: ' + data.daily[daysAhead-1].wind_speed + ' MPH';
@@ -56,29 +55,46 @@ var getForecastData = function (daysAhead, data) {
     console.log(data);
 };
 
+var showHourly = function() {
+    hourlyBoxEl.classList.remove('hidden');
+    toggleBtnEl.innerHTML = 'Hide Hourly Forecast <span class="material-icons">expand_less</span>';
+    toggleBtnEl.classList.add('hide')
+}
+
+var hideHourly = function() {
+    hourlyBoxEl.classList.add('hidden');
+    toggleBtnEl.innerHTML = 'Show Hourly Forecast <span class="material-icons">expand_more</span>';
+    toggleBtnEl.classList.remove('hide');
+}    
+
+var toggleHandler = function() {
+    console.log('button clicked')
+    if (toggleBtnEl.dataset.toggle == 0) {
+        console.log('show hourly')
+        showHourly();
+        toggleBtnEl.dataset.toggle = 1;
+    } else {
+        hideHourly();
+        toggleBtnEl.dataset.toggle = 0;
+    }
+}
+
+
+    
+toggleBtnEl.addEventListener("click", toggleHandler);
+
 var getHourlyData = function (hoursAhead, data) {
     const hourly = document.querySelector('#hr' + hoursAhead);
     const temp = document.querySelector('#temp' + hoursAhead + 'Hr');
     const precip = document.querySelector('#precip' + hoursAhead + 'Hr');
+    const icon = document.querySelector('#iconHr' + hoursAhead);
 
-    var showHourly = function() {
-        hourly.classList.remove('hidden');
-        hourly.classList.add('day-card');
-        hourly.classList.add('hour-card');
-        showBtnEl.classList.add('hidden');
-        hideBtnEl.classList.remove('hidden');
-        hourlyBoxEl.classList.remove('hidden');
-    }
+    icon.setAttribute('src', 'https://openweathermap.org/img/w/' + data.hourly[hoursAhead-1].weather[0].icon + '.png');
 
-    var hideHourly = function() {
-        hourly.classList.add('hidden');
-        showBtnEl.classList.remove('hidden');
-        hideBtnEl.classList.add('hidden');
-        hourlyBoxEl.classList.add('hidden');
-    }
 
-    showBtnEl.addEventListener("click", showHourly);
-    hideBtnEl.addEventListener("click", hideHourly);
+    hourly.classList.remove('hidden');
+    hourly.classList.add('day-card');
+    hourly.classList.add('hour-card');
 
     temp.innerHTML = data.hourly[hoursAhead-1].temp + '°F';
     precip.innerHTML = 'Precip. ' + data.hourly[hoursAhead-1].pop * 100 + '%';
@@ -86,8 +102,6 @@ var getHourlyData = function (hoursAhead, data) {
 };
 
 var displayWeather = function(currentObj) {
-    console.log('this is working')
-    console.log(currentObj);
     tempEl.innerHTML = "Temp: " + currentObj.current.temp + "°F";
     windEl.innerHTML = "Wind: " + currentObj.current.wind_speed + " MPH"
     humidityEl.innerHTML = "Humidity: " + currentObj.current.humidity + " %"
@@ -128,7 +142,6 @@ var getLocation = function() {
 
 var getLocalWeather = function(position) {
     var apiCityCoordinates = "https://api.openweathermap.org/data/2.5/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31"
-    console.log(apiCityCoordinates)
     fetch(apiCityCoordinates)
     .then(function(response) {
         response.json()
@@ -140,9 +153,7 @@ var getLocalWeather = function(position) {
 
 
 var getCityCoordinates = function(city) {
-    console.log(city.coord.lat, city.coord.lon);
     var apiCityCoordinates = "https://api.openweathermap.org/data/2.5/onecall?lat=" + city.coord.lat + "&lon=" + city.coord.lon + "&units=imperial&appid=64197eb05654a42e732c6020c1d3ec31"
-    console.log(apiCityCoordinates)
     fetch(apiCityCoordinates)
     .then(function(response) {
         response.json()
@@ -180,16 +191,11 @@ var formSubmitHandler = function(event) {
     var city = cityInputEl.value;
     const words = city.split(" ")
     var cityName = words.join(" ");
-    console.log(cityName);
     
     savedSearches.push({cityName});
     saveSearch();
 
-    if(savedSearches) {
-        for (i = 0, i < savedSearches.length; i++;) {
-        console.log(savedSearches[i]);
-        }
-    } 
+    
 
 
     if (city) {
@@ -201,7 +207,6 @@ var formSubmitHandler = function(event) {
         };
 
         cityEl.innerHTML = words.join(" ") + " " + "(" + moment().format("L") + ")";
-        console.log(cityName);
 
 
     } else {

@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>Weather Dashboard</header>
@@ -32,70 +33,83 @@
                 <p id="humidity"></p>
                 <p id="uv"></p>
                 <div class="row">
-                    <button class="col-12 toggle hidden" id="show">Show Hourly</button>
-                    <button class="col-12 toggle hidden" id="hide">Hide Hourly</button>
+                    <button class="toggle hidden" id="toggle" data-toggle="0">Show Hourly Forecast<span class="material-icons">expand_more</span></button>
                 </div>
-                <div class="hourly-box hidden" id="hourly-box">
-                    <div class="row" style="width: 1810px;">
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr1">
-                        <div id="time1"></div>
-                        <div id="temp1Hr"></div>
-                        <div id="precip1Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr2">
-                        <div id="time2"></div>
-                        <div id="temp2Hr"></div>
-                        <div id="precip2Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr3">
-                        <div id="time3"></div>
-                        <div id="temp3Hr"></div>
-                        <div id="precip3Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr4">
-                        <div id="time4"></div>
-                        <div id="temp4Hr"></div>
-                        <div id="precip4Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr5">
-                        <div id="time5"></div>
-                        <div id="temp5Hr"></div>
-                        <div id="precip5Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr6">
-                        <div id="time6"></div>
-                        <div id="temp6Hr"></div>
-                        <div id="precip6Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr7">
-                        <div id="time7"></div>
-                        <div id="temp7Hr"></div>
-                        <div id="precip7Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr8">
-                        <div id="time8"></div>
-                        <div id="temp8Hr"></div>
-                        <div id="precip8Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr9">
-                        <div id="time9"></div>
-                        <div id="temp9Hr"></div>
-                        <div id="precip9Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr10">
-                        <div id="time10"></div>
-                        <div id="temp10Hr"></div>
-                        <div id="precip10Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr11">
-                        <div id="time11"></div>
-                        <div id="temp11Hr"></div>
-                        <div id="precip11Hr"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr12">
-                        <div id="time12"></div>
-                        <div id="temp12Hr"></div>
-                        <div id="precip12Hr"></div>
+                <div class="row">
+                    <div class="hourly-box hidden col-12" id="hourly-box">
+                        <div class="row" style="width: 1810px;">
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr1">
+                            <div class="hour" id="time1"></div>
+                            <img id="iconHr1" src="" alt="">
+                            <div id="temp1Hr"></div>
+                            <div id="precip1Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr2">
+                            <div class="hour" id="time2"></div>
+                            <img id="iconHr2" src="" alt="">
+                            <div id="temp2Hr"></div>
+                            <div id="precip2Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr3">
+                            <div class="hour" id="time3"></div>
+                            <img id="iconHr3" src="" alt="">
+                            <div id="temp3Hr"></div>
+                            <div id="precip3Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr4">
+                            <div class="hour" id="time4"></div>
+                            <img id="iconHr4" src="" alt="">
+                            <div id="temp4Hr"></div>
+                            <div id="precip4Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr5">
+                            <div class="hour" id="time5"></div>
+                            <img id="iconHr5" src="" alt="">
+                            <div id="temp5Hr"></div>
+                            <div id="precip5Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr6">
+                            <div class="hour" id="time6"></div>
+                            <img id="iconHr6" src="" alt="">
+                            <div id="temp6Hr"></div>
+                            <div id="precip6Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr7">
+                            <div class="hour" id="time7"></div>
+                            <img id="iconHr7" src="" alt="">
+                            <div id="temp7Hr"></div>
+                            <div id="precip7Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr8">
+                            <div class="hour" id="time8"></div>
+                            <img id="iconHr8" src="" alt="">
+                            <div id="temp8Hr"></div>
+                            <div id="precip8Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr9">
+                            <div class="hour" id="time9"></div>
+                            <img id="iconHr9" src="" alt="">
+                            <div id="temp9Hr"></div>
+                            <div id="precip9Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr10">>
+                            <div class="hour" id="time10"></div>
+                            <img id="iconHr10" src="" alt="">
+                            <div id="temp10Hr"></div>
+                            <div id="precip10Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr11">
+                            <div class="hour" id="time11"></div>
+                            <img id="iconHr11" src="" alt="">
+                            <div id="temp11Hr"></div>
+                            <div id="precip11Hr"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-1 hidden" id="hr12">
+                            <div class="hour" id="time12"></div>
+                            <img id="iconHr12" src="" alt="">
+                            <div id="temp12Hr"></div>
+                            <div id="precip12Hr"></div>
+                        </div>
                     </div>
                 </div>
             </div>
