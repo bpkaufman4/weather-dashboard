@@ -119,6 +119,16 @@ button {
     font-size: 20px;
 }
 
+#expand {
+    -moz-transition: transform .25s;
+    -webkit-transition: transform .25s;
+    transition: transform .25s;
+}
+
+.flip {
+    transform: rotate(-180deg);
+}
+
 .five-day-container {
     background-color: white;
     border-radius: 15px;
@@ -189,6 +199,7 @@ button {
 
     .toggle {
         margin-bottom: 0;
+        padding-left: 35px;
     }
 
     .toggle.hide {
@@ -203,7 +214,7 @@ button {
 
     .hourly-box {
         padding: 25px;
-        height: 195px;
+        height: 170px;
         background: #cfcfcf;
         border-radius: 10px;
         padding-top: 0;
@@ -221,5 +232,6 @@ button {
     .material-icons {
         position: relative;
         top: 5px;
+        float: right;
     }
 }

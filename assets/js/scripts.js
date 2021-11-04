@@ -40,6 +40,12 @@ date4El.innerHTML = moment().add(4, 'days').format("dddd L")
 date5El.innerHTML = moment().add(5, 'days').format("dddd L")
 cityEl.innerHTML = "(" + moment().format("dddd L") + ")";
 
+$(document).ready(function() {
+    $( ".toggle" ).click( function() {
+        $("#expand").toggleClass('flip');
+    });
+});
+
 var getForecastData = function (daysAhead, data) {
     const temp = document.querySelector('#temp' + daysAhead);
     const wind = document.querySelector('#wind' + daysAhead);
@@ -57,13 +63,11 @@ var getForecastData = function (daysAhead, data) {
 
 var showHourly = function() {
     hourlyBoxEl.classList.remove('hidden');
-    toggleBtnEl.innerHTML = 'Hide Hourly Forecast <span class="material-icons">expand_less</span>';
     toggleBtnEl.classList.add('hide')
 }
 
 var hideHourly = function() {
     hourlyBoxEl.classList.add('hidden');
-    toggleBtnEl.innerHTML = 'Show Hourly Forecast <span class="material-icons">expand_more</span>';
     toggleBtnEl.classList.remove('hide');
 }    
 
