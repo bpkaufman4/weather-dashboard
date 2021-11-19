@@ -1,0 +1,17 @@
+{
+    "icons": [
+      {
+        "src": "./dashboard-icon.png",
+        "sizes": "840x585",
+        "type": "image/png"
+      }
+    ],
+    "name": "Weather Dashboard",
+    "short_name": "Weather",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": "./index.html",
+    "description": "The best way to check the weather in your area.",
+    "background_color": "#ff6277",
+    "theme_color": "#4fc3f7"
+  }
