@@ -43,6 +43,8 @@ cityEl.innerHTML = "(" + moment().format("dddd L") + ")";
 $(document).ready(function() {
     $( ".toggle" ).click( function() {
         $("#expand").toggleClass('flip');
+        $("#hourly-box").toggleClass('hide');
+        $("#hourly-box").toggleClass('shown');
     });
 });
 

@@ -6,9 +6,6 @@
     overflow-x: hidden;
 }
 
-.hidden {
-    display: none;
-}
 
 #city {
     text-align: center;
@@ -94,7 +91,7 @@ button {
     text-align: center !important;
     width: 200px !important;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0 ;
 }
 
 .city-form {
@@ -127,6 +124,19 @@ button {
 
 .flip {
     transform: rotate(-180deg);
+}
+
+.hidden {
+    height: 0px !important;
+    padding: 40px 25px 0 !important;
+    transition: padding 300ms, height 300ms;
+}
+
+.shown {
+    visibility: visible;
+    height: 170px;
+    padding: 0 25px 25px 25px;
+    transition: visibility 300ms linear 0s, padding 300ms, height 300ms;
 }
 
 .five-day-container {
@@ -211,6 +221,8 @@ button {
         width: 100% !important;
         font-size: 20px;
     }
+
+    
 
     .hourly-box {
         padding: 25px;
