@@ -117,6 +117,7 @@ button {
 }
 
 #expand {
+    
     -moz-transition: transform .25s;
     -webkit-transition: transform .25s;
     transition: transform .25s;
